@@ -1,0 +1,55 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Holi Animation</title>
+<style>
+  body {
+    background-color: #db2020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .holi-text {
+    font-weight: 900;
+    font-size: 200px;
+    color: #fffb00;
+  }
+</style>
+</head>
+<body>
+<div class="holi-text">Happy Holi!💦</div>
+<script>
+  // Get the element to animate
+  const holiText = document.querySelector('.holi-text');
+
+  // Define animation parameters
+  const scaleValues = [1, 1.1, 1];
+  const animationDuration = 20000; // 2 seconds
+  const framesPerSecond = 30;
+  const totalFrames = animationDuration / (1000 / framesPerSecond);
+  const frameDuration = animationDuration / totalFrames;
+
+  let currentFrame = 0;
+
+  // Define animation function
+  function animate() {
+    const scaleFactor = scaleValues[currentFrame % scaleValues.length];
+    holiText.style.transform = `scale(${scaleFactor})`;
+    currentFrame++;
+    if (currentFrame < totalFrames) {
+      setTimeout(animate, frameDuration);
+    }
+  }
+
+  // Start the animation
+  animate();
+</script>
+</body>
+</html>
